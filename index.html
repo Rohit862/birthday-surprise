@@ -1942,6 +1942,7 @@ if (songName === 'Uddariya') {
     audio.currentTime = 0;
 
     audio.play().catch(error => {
+if(songName === 'Barsaat') audio.load();
       console.log('Audio play failed:', error);
     });
 

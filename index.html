@@ -1713,7 +1713,7 @@ let current=0, locked=false;
 const progress=document.getElementById('progress');
 const dots=[];
 
-function go(index){
+/*function go(index){
   if(locked || index<0 || index>=scenes.length || index===current)return;
   locked=true;
   const old=scenes[current], next=scenes[index];
@@ -1722,7 +1722,72 @@ function go(index){
   current=index;
   setTimeout(()=>{old.classList.remove('active','exit');locked=false;},500);
   if(index===2)makeConfetti();
+}*/
+
+function resetCakeAnimation(){
+  const cake = document.getElementById('cake');
+
+  // Cake SVG animation fresh start
+  if(cake && typeof cake.setCurrentTime === 'function'){
+    try{
+      cake.pauseAnimations();
+      cake.setCurrentTime(0);
+      cake.unpauseAnimations();
+    }catch(e){}
+  }
+
+  // Candle + flame fresh start
+  document.querySelectorAll('.candle').forEach(candle => {
+
+    candle.style.animation = 'none';
+
+    candle.querySelectorAll('.fire').forEach(fire => {
+      fire.style.animation = 'none';
+    });
+
+    void candle.offsetWidth;
+
+    candle.style.animation =
+      'in 500ms 2.4s ease-out forwards';
+
+    const fireDurations = ['2s','1.5s','1s','0.5s','0.2s'];
+
+    candle.querySelectorAll('.fire').forEach((fire,i) => {
+      fire.style.animation =
+        `fire ${fireDurations[i] || '0.5s'} 2.9s infinite`;
+    });
+  });
 }
+
+
+function go(index){
+  if(locked || index<0 || index>=scenes.length || index===current)return;
+
+  locked=true;
+
+  const old=scenes[current], next=scenes[index];
+
+  old.classList.add('exit');
+  next.classList.add('active');
+
+  if(dots.length){
+    dots[current].classList.remove('active');
+    dots[index].classList.add('active');
+  }
+
+  current=index;
+
+  setTimeout(()=>{
+    old.classList.remove('active','exit');
+    locked=false;
+  },500);
+
+  if(index===2){
+    resetCakeAnimation();
+    makeConfetti();
+  }
+}
+
 function next(){go(current+1)}
 document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>{
   const rect=b.getBoundingClientRect();

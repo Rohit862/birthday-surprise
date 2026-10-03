@@ -1959,9 +1959,8 @@ document.querySelectorAll('.music').forEach(card => {
 
     let audio = null;
 
-    //if (songName === 'Barsaat') {
-      audio = barsaatAudio;
-    }//
+//if (songName==='Barsaat'){audio=barsaatAudio;}//
+
    if (songName === 'Tera Chehra') {
   audio = TeraChehraAudio;
 }
@@ -2085,7 +2084,7 @@ if(songName === 'Barsaat') audio.load();
 // SONG FINISH → RESET BARSAAAT
 // ==============================
 
-barsaatAudio.addEventListener('ended', () => {
+/*barsaatAudio.addEventListener('ended', () => {
 
   const card = document.querySelector(
     '[data-song="Barsaat"]'
@@ -2107,7 +2106,7 @@ barsaatAudio.addEventListener('ended', () => {
     mini.style.display = 'none';
   }
 
-});
+});*/
 
 
 // ==============================

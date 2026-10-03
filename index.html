@@ -1185,8 +1185,13 @@ body {
 }
 </style>
 
-<audio id="barsaatAudio" preload="auto" loop>
+<!--<audio id="barsaatAudio" preload="auto" loop>
   <source src="Barsaat.mp3" type="audio/mpeg">
+</audio>-->
+
+
+<audio id="TeraChehraAudio" preload="auto" loop>
+  <source src="Tera Chehra.mp3" type="audio/mpeg">
 </audio>
 
 <audio id="kabhiAudio" preload="auto" loop>
@@ -1397,7 +1402,7 @@ body {
       <p class="sub">These are the songs I picked for me…</p>
       <div class="musicGrid">
 
-  <article class="glass music" data-song="Barsaat">
+  <!--<article class="glass music" data-song="Barsaat">
     <div class="music-cover">
       <img src="Barsaat.jpg" alt="Barsaat X Spiderman">
     </div>
@@ -1413,7 +1418,25 @@ body {
     </div>
 
     <button class="play">▶</button>
-  </article>
+  </article>-->
+
+<article class="glass music" data-song="Tera Chehra">
+  <div class="music-cover">
+    <img src="Tera Chehra.jpg" alt="Tera Chehra">
+  </div>
+
+  <div><br>
+    <h3>Tera Chehra</h3>
+    <small>Sanam Teri Kasam</small>
+
+    <div class="wave">
+      <span></span><span></span><span></span>
+      <span></span><span></span>
+    </div>
+  </div>
+
+  <button class="play">▶</button>
+</article>
 
 
   <article class="glass music" data-song="Chand Sifarish">
@@ -1906,7 +1929,10 @@ letterEnvelope.addEventListener('keydown',(e)=>{
 let activeSong = null;
 let activeAudio = null;
 
-const barsaatAudio = document.getElementById('barsaatAudio');
+//const barsaatAudio = document.getElementById('barsaatAudio');//
+
+const TeraChehraAudio = document.getElementById('TeraChehraAudio');
+
 const kabhiAudio = document.getElementById('kabhiAudio');
 const chaleAudio = document.getElementById('ChaleAudio');
 
@@ -1933,9 +1959,12 @@ document.querySelectorAll('.music').forEach(card => {
 
     let audio = null;
 
-    if (songName === 'Barsaat') {
+    //if (songName === 'Barsaat') {
       audio = barsaatAudio;
-    }
+    }//
+   if (songName === 'Tera Chehra') {
+  audio = TeraChehraAudio;
+}
 
     if (songName === 'Chand Sifarish') {
   audio = kabhiAudio;

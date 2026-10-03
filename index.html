@@ -282,7 +282,19 @@ p{color:var(--muted);font-size:clamp(1rem,2vw,1.2rem);line-height:1.75}
 @keyframes glitterBurst{0%{opacity:0;transform:scale(.2) rotate(0)}25%{opacity:1}100%{opacity:0;transform:scale(3.8) rotate(35deg)}}
 @keyframes giftOpen{20%{transform:rotate(-5deg) scale(1.05)}45%{transform:rotate(5deg) scale(1.12)}100%{transform:translateY(-8px) scale(1.08)}}
 @media(max-width:760px){
-  .scene{padding:18px}.musicGrid{grid-template-columns:1fr;max-height:55vh;overflow:auto;padding:4px}.music{display:grid;grid-template-columns:82px 1fr auto;gap:12px;align-items:center;padding:12px}.cover{height:82px;margin:0;font-size:2rem}.music .wave{grid-column:2/4}.card{padding:24px}.letter{padding:25px;max-height:76vh;overflow:auto}.quote{padding:28px}.progress{right:9px}.floater:nth-child(n+9){display:none}.heroCake{font-size:5.5rem}.gift{font-size:6.5rem}.mini{font-size:.85rem}.btn{padding:14px 19px}
+  .scene{padding:18px}display:block;
+    overflow-y:auto;
+    overflow-x:hidden;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .content{
+    width:100%;
+    margin:0 auto;
+    padding-top:10px;
+    padding-bottom:90px;
+  }
+.musicGrid{grid-template-columns:1fr;max-height:55vh;overflow:auto;padding:4px}.music{display:grid;grid-template-columns:82px 1fr auto;gap:12px;align-items:center;padding:12px}.cover{height:82px;margin:0;font-size:2rem}.music .wave{grid-column:2/4}.card{padding:24px}.letter{padding:25px;max-height:76vh;overflow:auto}.quote{padding:28px}.progress{right:9px}.floater:nth-child(n+9){display:none}.heroCake{font-size:5.5rem}.gift{font-size:6.5rem}.mini{font-size:.85rem}.btn{padding:14px 19px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
